@@ -1,6 +1,6 @@
-IMPALA_STATE_STORE_HOST=localhost
-IMPALA_STATE_STORE_PORT=24000
-IMPALA_BACKEND_PORT=22000
+IMPALA_STATE_STORE_HOST=<%= @impala_state_store_host %>
+IMPALA_STATE_STORE_PORT=<%= @impala_state_store_port %>
+IMPALA_BACKEND_PORT=<%= @impala_backend_port %>
 IMPALA_LOG_DIR=/var/log/impala
 
 IMPALA_STATE_STORE_ARGS=" -log_dir=${IMPALA_LOG_DIR} -state_store_port=${IMPALA_STATE_STORE_PORT}"
