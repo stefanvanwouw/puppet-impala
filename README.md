@@ -29,6 +29,9 @@ On the worker nodes:
 ```puppet
 class {'impala::worker':
     impala_state_store_host => $master_fqdn,
-    require => [Class['your::class::that::ensures::java::is::installed'], Class['cdh4::hive']],
+    require => [
+        Class['your::class::that::ensures::java::is::installed'], 
+        Class['cdh4::hive']
+    ],
 }
 ```
