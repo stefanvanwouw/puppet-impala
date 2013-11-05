@@ -13,7 +13,7 @@ Puppet module for installing Impala on your Hadoop cluster.
 
 - Oracle Java 6 installed on all nodes (requirement of Impala).
 - Apache Hive and Hadoop should be installed on the worker nodes (The CDH4 versions included in: https://github.com/wikimedia/puppet-cdh4 ).
-
+- OS should be Ubuntu/Debian for package dependencies.
 
 ### Usage:
 
