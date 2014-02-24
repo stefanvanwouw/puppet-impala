@@ -2,6 +2,7 @@ class impala (
     $release,
 ) {
 
+
     apt::source {'impala':
         location     => 'http://archive.cloudera.com/impala/ubuntu/precise/amd64/impala',
         release      => $release,
