@@ -1,4 +1,5 @@
 class impala::worker (
+    $impala_service_status = 'running',
     $impala_state_store_host = $::impala::defaults::impala_state_store_host,
     $impala_state_store_port = $::impala::defaults::impala_state_store_port,
     $impala_backend_port = $::impala::defaults::impala_backend_port,
@@ -49,7 +50,7 @@ class impala::worker (
     }
      
     service { 'impala-server':
-        ensure     => 'running',
+        ensure     => $impala_service_status,
         enable     => true,
         hasstatus  => true,
         hasrestart => true,
