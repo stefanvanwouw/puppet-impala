@@ -12,7 +12,7 @@ class impala::master (
     }
     Class['impala'] -> Class['impala::master']
 
-    package { 'impala-state-store':
+    package { ['impala-state-store', 'impala-catalog']:
         ensure => installed,
     }
 
@@ -21,7 +21,7 @@ class impala::master (
         group   => 'root',
         content => template('impala/impala-default.erb'),
         require => Package['impala-state-store'],
-        notify  => Service['impala-state-store'],
+        notify  => [Service['impala-state-store'],Service['impala-catalog']],
     }
 
     service { 'impala-state-store':
@@ -30,5 +30,12 @@ class impala::master (
         hasstatus  => true,
         hasrestart => true,
         require    => Package['impala-state-store']
+    }
+    service { 'impala-catalog':
+        ensure     => $impala_service_status,
+        enable     => true,
+        hasstatus  => true,
+        hasrestart => true,
+        require    => Package['impala-catalog']
     }
 }
